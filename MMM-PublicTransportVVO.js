@@ -19,7 +19,9 @@ Module.register("MMM-PublicTransportVVO", {
     delay: 2,                             // how long do you need to walk to the next station?
     showTableHeaders: true,               // show location and station in table header
     showTableHeadersAsSymbols: false,     // table headers as symbols or written?
-    maxReachableDepartures: 7
+    maxReachableDepartures: 7,
+    TimeOrMinutes: "Minutes",
+    BreakPointTimeToMinutes: 30
   },
 	// create some variables to hold the station name and city based on the API result.
 	fetchedStationCity: "",
@@ -207,6 +209,8 @@ Module.register("MMM-PublicTransportVVO", {
     row.appendChild(directionCell);
 
     // cell for time
+    var Datum = new Date();
+    var ms = Datum.getTime(); 
     let timeCell = document.createElement("td");
     timeCell.className = "centeredTd timeCell bright";
     if (this.config.delay > 0 && current.departuretime <= this.config.delay && this.config.colored) {
@@ -215,7 +219,14 @@ Module.register("MMM-PublicTransportVVO", {
     if (current.departuretime === "") {
       timeCell.innerHTML = this.translate("NOW");;
     } else {
-      timeCell.innerHTML = current.departuretime;
+      if (this.config.TimeOrMinutes==="Minutes") {
+       timeCell.innerHTML = current.departuretime;
+       } else {
+	if (this.config.BreakPointTimeToMinutes > 0 and current.departuretime < this.config.BreakPointTimeToMinutes)
+       ms = ms + (current.departuretime * 60 * 1000);
+       Datum.setTime(ms);
+       timeCell.innerHTML=moment(Datum).format("HH:mm");
+       };
     }
     row.appendChild(timeCell);
 
