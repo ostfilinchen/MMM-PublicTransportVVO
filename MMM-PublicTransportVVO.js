@@ -222,7 +222,7 @@ Module.register("MMM-PublicTransportVVO", {
       if (this.config.TimeOrMinutes==="Minutes") {
        timeCell.innerHTML = current.departuretime;
        } else {
-	if (this.config.BreakPointTimeToMinutes > 0 && current.departuretime < this.config.BreakPointTimeToMinutes) {
+	if (this.config.BreakPointTimeToMinutes > 0 && current.departuretime <= this.config.BreakPointTimeToMinutes) {
 		timeCell.innerHTML = current.departuretime;
 	} else {
        ms = ms + (current.departuretime * 60 * 1000);
