@@ -17,6 +17,7 @@ Then the module calculates the next reachable departures and draws all unreachab
 The module looks like this:
 
 ![Example for Dresden, Postplatz with  delay of 3 minutes](img/MMM-PublicTransportVVO_screenshot.png)
+![Example for Dresden, Hauptbahnhof with  delay of 5 minutes](img/MMM-PublicTransportVVO_screenshot_1.png)
 
 ## Installation
 
