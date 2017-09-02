@@ -53,6 +53,9 @@ The module quite configurable. These are the possible options:
 |`delay`|How long does it take you to get from the mirror to the station? The value is given in minutes.<br><br>**Type:** `integer`<br>**Default value:** `10` // 10 minutes|
 |`showTableHeaders`|Show the table headers with information about location and station name.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
 |`showTableHeadersAsSymbols`|Show the table headers as text or symbols.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|`TimeOrMinutes`|Shows Departuretime in Minutes or Timeformat.<br><br>**Type:** `string`<br>**Default value:** `Minutes` <br>Possible values: `Minutes` or `Time`|
+|`BreakPointTimeToMinutes`|Point when Departuretime is change from Time to Minutes<br><br>**Type:** `integer`<br>**Default value:** `30`|
+
 
 Here is an example of an entry in `config/config.js`:
 
@@ -80,8 +83,9 @@ Multiple instances of this module are possible. Just add another entry of the MM
 
 * [Michael Teeuw](https://github.com/MichMich) for the great tool and many others to build a MagicMirror.
 * [Bangee44](https://github.com/Bangee44) for creating the [MMM-swisstransport](https://github.com/Bangee44/MMM-swisstransport) module, on which this one is heavily based.
+* [ChristianGeie](https://github.com/ChristianGeie) for creating the [MMM-PublicTransportVVO](https://github.com/ChristianGeie/MMM-PublicTransportVVO) module, on which this one is heavily based.
 * The community of [magicmirror.builders](https://magicmirror.builders) for help in the development process.
 
 ## Issues
 
-If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/ChristianGeie/MMM-PublicTransportVVO/issues) in this repository.
+If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/ostfilinchen/MMM-PublicTransportVVO/issues) in this repository.
