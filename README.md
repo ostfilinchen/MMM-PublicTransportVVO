@@ -23,7 +23,7 @@ The module looks like this:
 Just clone the module into your MagicMirror modules folder:
 
 ```
-git clone https://github.com/ChristianGeie/MMM-PublicTransportVVO.git
+git clone https://github.com/ostfilinchen/MMM-PublicTransportVVO.git
 ```
 
 ## The `stationId`
