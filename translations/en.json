@@ -5,5 +5,8 @@
   "NOW": "now",
   "NO-TRAMS": "No connections available",
   "NO-DEPS": "There are currently no departures.",
-  "NO-STATIONID": "Please set the correct stationID."
+  "NO-STATIONID": "Please set the correct stationID.",
+  "TIME": "",
+  "MINUTE": "minute",
+  "MINUTES": "minutes"
 }
