@@ -209,6 +209,13 @@ Module.register("MMM-PublicTransportVVO", {
     row.appendChild(directionCell);
 
     // cell for time
+    var formats = {
+	    if (config.timeFormat === "12") {
+		    mytimeformat = "h:mm A";
+	    } else {
+	    	    mytimeformat = "HH:mm";
+    		}
+    },
     var Datum = new Date();
     var ms = Datum.getTime(); 
     let timeCell = document.createElement("td");
@@ -227,7 +234,7 @@ Module.register("MMM-PublicTransportVVO", {
 	} else {
        ms = ms + (current.departuretime * 60 * 1000);
        Datum.setTime(ms);
-       timeCell.innerHTML=moment(Datum).format("HH:mm")};
+       timeCell.innerHTML=moment(Datum).format(formats.mytimeformat)};
        };
     }
     row.appendChild(timeCell);
