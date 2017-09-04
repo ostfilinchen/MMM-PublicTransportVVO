@@ -5,5 +5,8 @@
   "NOW": "jetzt",
   "NO-TRAMS": "Keine Verbindungen verf&uuml;gbar",
   "NO-DEPS": "Derzeit keine Abfahrten.",
-  "NO-STATIONID": "Bitte eine existierende stationID angeben."
+  "NO-STATIONID": "Bitte eine existierende stationID angeben.",
+  "TIME": "Uhr",
+  "MINUTE": "Minute",
+  "MINUTES": "Minuten"
 }
