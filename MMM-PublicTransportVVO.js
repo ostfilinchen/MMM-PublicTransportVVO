@@ -210,13 +210,12 @@ Module.register("MMM-PublicTransportVVO", {
     row.appendChild(directionCell);
 
     // cell for time
-    var formats = {
-	    if (this.config.timeformat === "12") {
-		    mytimeformat = "h:mm A";
-	    } else {
-	    	    mytimeformat = "HH:mm";
-    		}
-    },
+    var mytimeformat 
+    if (this.config.timeformat === "12") {
+	    mytimeformat = "h:mm A";
+    } else {
+   	    mytimeformat = "HH:mm";
+	},
     var Datum = new Date();
     var ms = Datum.getTime(); 
     let timeCell = document.createElement("td");
