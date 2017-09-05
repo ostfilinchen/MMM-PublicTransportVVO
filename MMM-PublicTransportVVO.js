@@ -3,6 +3,7 @@ Module.register("MMM-PublicTransportVVO", {
   // default values
   defaults: {
     name: "MMM-PublicTransportVVO",
+    timeformat: config.timeFormat,
     hidden: false,
     stationId: 33000037,
     baseurl: "http://widgets.vvo-online.de/abfahrtsmonitor/",
@@ -210,7 +211,7 @@ Module.register("MMM-PublicTransportVVO", {
 
     // cell for time
     var formats = {
-	    if (config.timeFormat === "12") {
+	    if (this.config.timeformat === "12") {
 		    mytimeformat = "h:mm A";
 	    } else {
 	    	    mytimeformat = "HH:mm";
