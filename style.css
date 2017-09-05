@@ -18,7 +18,8 @@
 }
 
 .timeCell {
-    width: 3em;
+    width: 13ch;
+    text-align: center;
 }
 
 .directionCell {

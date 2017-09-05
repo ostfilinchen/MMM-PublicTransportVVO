@@ -10,6 +10,7 @@ Module.register("MMM-PublicTransportVVO", {
     stationuri: "Haltestelle.do?hst=",
     departureuri: "Abfahrten.do?hst=",
     colored: false,                       // show not reachable departures colored
+    coloredtrafficlights: false,
     animationSpeed: 1 * 1000,             // 1 sec
     updateInterval: 30 * 1000,            // 30 sec
     fade: true,                           // fading out the bottom of the list
@@ -88,6 +89,7 @@ Module.register("MMM-PublicTransportVVO", {
       lineIcon.className = "fa fa-tag";
       headerLine.appendChild(lineIcon);
     } else {
+      headerLine.className = "centeredTd";
       headerLine.innerHTML = this.translate("LINE");
     }
 
@@ -102,6 +104,7 @@ Module.register("MMM-PublicTransportVVO", {
       directionIcon.className = "fa fa-exchange";
       headerDirection.appendChild(directionIcon);
     } else {
+      headerDirection.className = "centeredTd";
       headerDirection.innerHTML = this.translate("DESTINATION");
     }
 
@@ -116,6 +119,7 @@ Module.register("MMM-PublicTransportVVO", {
       timeIcon.className = "fa fa-clock-o";
       headerTime.appendChild(timeIcon);
     } else {
+      headerTime.className = "centeredTd";
       headerTime.innerHTML = this.translate("DEPARTURE");
     }
 
@@ -216,13 +220,34 @@ Module.register("MMM-PublicTransportVVO", {
     } else {
    	    mytimeformat = "HH:mm";
 	};
+      
+    var myyellowstyle = Math.round(this.config.delay * 0.4) + this.config.delay;
     var Datum = new Date();
     var ms = Datum.getTime(); 
+      
     let timeCell = document.createElement("td");
     timeCell.className = "centeredTd timeCell bright";
-    if (this.config.delay > 0 && current.departuretime <= this.config.delay && this.config.colored) {
-      timeCell.style.color = "red";
+    
+    if (this.config.colored) {
+        if (this.config.coloredtrafficlights) {
+            if (this.config.delay > 0 && current.departuretime > this.config.delay && current.departuretime <= myyellowstyle) {
+                timeCell.style.color = "yellow";
+            } else {
+            if (this.config.delay > 0 && current.departuretime <= this.config.delay) {
+                timeCell.style.color = "red";
+            } else {
+            if (current.departuretime <= this.config.BreakPointTimeToMinutes) {
+                timeCell.style.color = "green";
+               }
+            }   
+        }
+    } else {
+        if (this.config.delay > 0 && current.departuretime <= this.config.delay && this.config.colored) {
+        timeCell.style.color = "red";
+        }
     }
+    };
+      
     if (current.departuretime === "") {
       timeCell.innerHTML = this.translate("NOW");;
     } else {
@@ -230,11 +255,15 @@ Module.register("MMM-PublicTransportVVO", {
        timeCell.innerHTML = current.departuretime;
        } else {
 	if (this.config.BreakPointTimeToMinutes > 0 && current.departuretime <= this.config.BreakPointTimeToMinutes) {
-		timeCell.innerHTML = current.departuretime;
+		if (current.departuretime == 1) {
+        timeCell.innerHTML = 'in ' + current.departuretime + ' ' + this.translate("MINUTE");
+    } else {
+        timeCell.innerHTML = 'in ' + current.departuretime + ' ' + this.translate("MINUTES");
+    }
 	} else {
        ms = ms + (current.departuretime * 60 * 1000);
        Datum.setTime(ms);
-       timeCell.innerHTML=moment(Datum).format(formats.mytimeformat)};
+       timeCell.innerHTML = moment(Datum).format(mytimeformat) + ' ' + this.translate("TIME")};
        };
     }
     row.appendChild(timeCell);
