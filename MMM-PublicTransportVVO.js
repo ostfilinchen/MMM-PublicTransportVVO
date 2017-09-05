@@ -215,7 +215,7 @@ Module.register("MMM-PublicTransportVVO", {
 	    mytimeformat = "h:mm A";
     } else {
    	    mytimeformat = "HH:mm";
-	},
+	};
     var Datum = new Date();
     var ms = Datum.getTime(); 
     let timeCell = document.createElement("td");
