@@ -3,7 +3,7 @@ Module.register("MMM-PublicTransportVVO", {
   // default values
   defaults: {
     name: "MMM-PublicTransportVVO",
-    timeFormat: config.timeFormat,
+    timeFormat: 12,
     hidden: false,
     stationId: 33000037,
     baseurl: "http://widgets.vvo-online.de/abfahrtsmonitor/",
