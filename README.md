@@ -1,4 +1,4 @@
- MMM-PublicTransportVVO
+MMM-PublicTransportVVO
 
 
 - **[MMM-PublicTransportVVO](https://github.com/ChristianGeie/MMM-PublicTransportVVO)** <br> Display live departures from public passenger transport service of the 'Verkehrsverbund Oberelbe' (VVO).
@@ -31,7 +31,11 @@ git clone https://github.com/ostfilinchen/MMM-PublicTransportVVO.git
 
 ### How to get it
 
-You will need a `stationId` for your module. *TODO* _Link full list or query target to get station IDs._
+You will need a `stationId` for your module. To get it open the browser and type: 
+```
+http://widgets.vvo-online.de/abfahrtsmonitor/Haltestelle.do?hst=
+```
+After the "=" you had to write the station like "Dresden Hauptbahnhof". You get an array and the last position shows you the stationId.
 
 ### How to verify it
 
@@ -54,6 +58,8 @@ The module quite configurable. These are the possible options:
 |`delay`|How long does it take you to get from the mirror to the station? The value is given in minutes.<br><br>**Type:** `integer`<br>**Default value:** `10` // 10 minutes|
 |`showTableHeaders`|Show the table headers with information about location and station name.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
 |`showTableHeadersAsSymbols`|Show the table headers as text or symbols.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|`colored`|should the departuretime shown red if the delay is reached<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|`coloredtrafficlights`|should the departuretime shown red, yellow or green. it shown red if the delay is reached, yellow if the delay + 40% is reached. If its over delay + 40% it shows green.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
 |`TimeOrMinutes`|Shows Departuretime in Minutes or Timeformat.<br><br>**Type:** `string`<br>**Default value:** `Minutes` <br>**Possible values:** `Minutes` or `Time`|
 |`BreakPointTimeToMinutes`|Point when Departuretime is change from Time to Minutes<br><br>**Type:** `integer`<br>**Default value:** `30`|
 
