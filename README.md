@@ -28,10 +28,22 @@ git clone https://github.com/ostfilinchen/MMM-PublicTransportVVO.git
 ```
 
 ## The `stationId`
+You don't need the stationId absolutely. If you want to use the Id, you must do the following steps. But you can first try it with the stationname. Stationnames are for example Dresden Hauptbahnhof or Dresden Bahnhof Neustadt.
+
+You can verify it with the url like:
+```
+http://widgets.vvo-online.de/abfahrtsmonitor/Haltestelle.do?hst=Dresden Hauptbahnhof
+```
+or
+```
+http://widgets.vvo-online.de/abfahrtsmonitor/Haltestelle.do?hst=Dresden Bahnhof Neustadt
+```
+If you get an answer from the webservice with your stationname, it's all fine and you can take this instead of the id.
+So the parameter `stationId` is an object.
 
 ### How to get it
 
-You will need a `stationId` for your module. To get it open the browser and type: 
+If you will use the `stationId` as an integer value for your module you have to do these steps. To get it open the browser and type: 
 ```
 http://widgets.vvo-online.de/abfahrtsmonitor/Haltestelle.do?hst=
 ```
@@ -51,7 +63,7 @@ The module quite configurable. These are the possible options:
 |Option|Description|
 |---|---|
 |`name`|The name of the module instance (if you want multiple modules).<br><br>**Type:** `string`<br>**Default value:** `MMM-PublicTransportVVO`|
-|`stationId`|The ID of the station. How to get the ID for your station is described below.<br><br>**Type:** `integer`<BR>**Default value:** `33000037`<br> This value is **Required**.|
+|`stationId`|The Name / ID of the station. How to get the ID for your station is described below.<br><br>**Type:** `string` or `integer`<BR>**Default value:** `33000037`<br> This value is **Required**.|
 |`marqueeLongDirections`|Makes a marquee/ticker text out of all direction descriptions with more than 25 characters. If this value is false, the descriptions are trimmed to the station names. If the movement is not fluent enough for you, you should turn it off.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
 |`updateInterval`|How often the module should be updated. The value is given in milliseconds.<br><br>**Type:** `integer`<br>**Default value:** `30000` // 30 seconds|
 |`hidden`|Visibility of the module.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
