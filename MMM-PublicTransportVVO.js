@@ -10,7 +10,7 @@ Module.register("MMM-PublicTransportVVO", {
     stationuri: "Haltestelle.do?hst=",
     departureuri: "Abfahrten.do?hst=",
     colored: false,                       // show not reachable departures colored
-    coloredtrafficlights: false,
+    coloredtrafficlights: false,	  // show values less then BreakPointTimeToMinutes in Traffic Lights colors
     animationSpeed: 1 * 1000,             // 1 sec
     updateInterval: 30 * 1000,            // 30 sec
     fade: true,                           // fading out the bottom of the list
@@ -18,16 +18,16 @@ Module.register("MMM-PublicTransportVVO", {
     initialLoadDelay: 0,                  // how long should we wait to load data after starting
     retryDelay: 2500,                     // if request fails, do a retry after 2.5 sec
     marqueeLongDirections: true,          // we want a marquee for long direction strings
-    delay: 2,                             // how long do you need to walk to the next station?
+    delay: 10,                            // how long do you need to walk to the next station?
     showTableHeaders: true,               // show location and station in table header
     showTableHeadersAsSymbols: false,     // table headers as symbols or written?
-    maxReachableDepartures: 7,
-    TimeOrMinutes: "Minutes",
-    BreakPointTimeToMinutes: 30
+    maxReachableDepartures: 7,		  // maximum of shown departures
+    TimeOrMinutes: "Minutes",  		  // show departure times in Time format or in Minutes
+    BreakPointTimeToMinutes: 30		  // Point when the departuretime dipslay changes from Time to Minutes
   },
-	// create some variables to hold the station name and city based on the API result.
-	fetchedStationCity: "",
-  fetchedStationName: "",
+  // create some variables to hold the station name and city based on the API result.
+    fetchedStationCity: "",
+    fetchedStationName: "",
 
   start: function () {
     Log.info("Starting module: " + this.name);
@@ -48,6 +48,10 @@ Module.register("MMM-PublicTransportVVO", {
     if (this.config.updateInterval < 30000) {
       this.config.updateInterval = 30000;
     }
+	  
+    if (this.config.BreakPointTimeToMinutes < 1) {
+      this.config.BreakPointTimeToMinutes = 1;
+    }	  
   },
 
   getDom: function () {
