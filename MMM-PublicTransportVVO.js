@@ -260,9 +260,9 @@ Module.register("MMM-PublicTransportVVO", {
        } else {
 	if (this.config.BreakPointTimeToMinutes > 0 && current.departuretime <= this.config.BreakPointTimeToMinutes) {
 		if (current.departuretime == 1) {
-        timeCell.innerHTML = 'in ' + current.departuretime + ' ' + this.translate("MINUTE");
+        timeCell.innerHTML = 'In ' + current.departuretime + ' ' + this.translate("MINUTE");
     } else {
-        timeCell.innerHTML = 'in ' + current.departuretime + ' ' + this.translate("MINUTES");
+        timeCell.innerHTML = 'In ' + current.departuretime + ' ' + this.translate("MINUTES");
     }
 	} else {
        ms = ms + (current.departuretime * 60 * 1000);
