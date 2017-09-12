@@ -22,6 +22,7 @@ Module.register("MMM-PublicTransportVVO", {
     showTableHeaders: true,               // show location and station in table header
     showTableHeadersAsSymbols: false,     // table headers as symbols or written?
     maxReachableDepartures: 7,		  // maximum of shown departures
+    PercentOverDelay: 42,    		  // Percent Value for Yellow marquee
     TimeOrMinutes: "Minutes",  		  // show departure times in Time format or in Minutes
     BreakPointTimeToMinutes: 30		  // Point when the departuretime dipslay changes from Time to Minutes
   },
@@ -225,7 +226,7 @@ Module.register("MMM-PublicTransportVVO", {
    	    mytimeformat = "HH:mm";
 	};
       
-    var myyellowstyle = Math.round(this.config.delay * 0.4) + this.config.delay;
+    var myyellowstyle = Math.round(this.config.delay * (this.config.PercentOverDelay / 100)) + this.config.delay;
     var Datum = new Date();
     var ms = Datum.getTime(); 
       
