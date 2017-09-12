@@ -71,7 +71,8 @@ The module quite configurable. These are the possible options:
 |`showTableHeaders`|Show the table headers with information about location and station name.<br><br>**Type:** `boolean`<br>**Default value:** `true`|
 |`showTableHeadersAsSymbols`|Show the table headers as text or symbols.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
 |`colored`|should the departuretime shown red if the delay is reached<br><br>**Type:** `boolean`<br>**Default value:** `false`|
-|`coloredtrafficlights`|should the departuretime shown red, yellow or green. it shown red if the delay is reached, yellow if the delay + 40% is reached. If its over delay + 40% it shows green.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
+|`PercentOverDelay`|it's a Percent Value who is gave the `coloredtrafficlights`-Parameter the Value of yellow color.<br><br>**Type:** `integer`<br>**Default value:** `42` <br><br> Why 42? Because it's the answer of everything.|
+|`coloredtrafficlights`|should the departuretime shown red, yellow or green. it shown red if the delay is reached, yellow if the delay + `PercentOverDelay` is reached. If its over delay + `PercentOverDelay` it shows green.<br><br>**Type:** `boolean`<br>**Default value:** `false`|
 |`TimeOrMinutes`|Shows Departuretime in Minutes or Timeformat.<br><br>**Type:** `string`<br>**Default value:** `Minutes` <br>**Possible values:** `Minutes` or `Time`|
 |`BreakPointTimeToMinutes`|Point when Departuretime is change from Time to Minutes<br><br>**Type:** `integer`<br>**Default value:** `30`|
 
