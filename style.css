@@ -23,7 +23,8 @@
 }
 
 .directionCell {
-    max-width: 32ch;
+    width: 50%;
+    max-width: 30em;
 }
 
 .marquee {
