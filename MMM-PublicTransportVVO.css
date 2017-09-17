@@ -23,6 +23,7 @@
 }
 
 .directionCell {
+    width: 15ch;
     max-width: 15em;
 }
 
