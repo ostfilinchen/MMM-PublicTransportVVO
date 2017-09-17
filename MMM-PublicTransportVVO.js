@@ -18,6 +18,7 @@ Module.register("MMM-PublicTransportVVO", {
     initialLoadDelay: 0,                  // how long should we wait to load data after starting
     retryDelay: 2500,                     // if request fails, do a retry after 2.5 sec
     marqueeLongDirections: true,          // we want a marquee for long direction strings
+    BreakPointMarquee: 15,		  // after how many signs should start the marquee
     delay: 10,                            // how long do you need to walk to the next station?
     showTableHeaders: true,               // show location and station in table header
     showTableHeadersAsSymbols: false,     // table headers as symbols or written?
@@ -208,7 +209,7 @@ Module.register("MMM-PublicTransportVVO", {
     let directionCell = document.createElement("td");
     directionCell.className = "directionCell bright";
 
-    if (this.config.marqueeLongDirections && current.departuredirection.length >= 26) {
+    if (this.config.marqueeLongDirections && current.departuredirection.length >= this.config.BreakPointMarquee) {
       directionCell.className = "directionCell bright marquee";
       let directionSpan = document.createElement("span");
       directionSpan.innerHTML = current.departuredirection;
