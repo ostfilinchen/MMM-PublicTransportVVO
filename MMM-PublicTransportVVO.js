@@ -404,7 +404,7 @@ Module.register("MMM-PublicTransportVVO", {
   },
 
   getStyles: function () {
-    return ['style.css'];
+    return ['MMM-PublicTransportVVO.css'];
   },
 
   getTranslations: function() {
